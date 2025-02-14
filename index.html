@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Web 3.0 | Contributions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .qrcode {
+            font-size: 18px;
+            margin-top: 20px;
+            width: 100%;
+            white-space: normal;
+            word-wrap: break-word;
+            display: none;
+        }
+
+        #cryptoSelectContainer {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        #cryptoSelect {
+            font-size: 14px;
+            padding: 8px;
+            margin-left: -8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Donations</h1>
+        <p>Thank you for considering a contribution. Your support helps us continue our work.</p>
+
+        <div id="cryptoSelectContainer">
+            <select id="cryptoSelect">
+                <option value="select" disabled selected>Select Cryptocurrency</option>
+                <option value="bitcoin">Bitcoin</option>
+                <option value="monero">Monero</option>
+            </select>
+        </div>
+
+        <img src="Bitcoin_QR_Code.png" alt="Bitcoin QR Code" class="qrcode bitcoin-qrcode" />
+        <img src="Monero_QR_Code.png" alt="Monero QR Code" class="qrcode monero-qrcode" />
+
+    </div>
+
+    <script>
+        const qrcodes = document.querySelectorAll('.qrcode');
+        const cryptoSelect = document.getElementById('cryptoSelect');
+
+        cryptoSelect.addEventListener('change', () => {
+            const selectedCrypto = cryptoSelect.value;
+
+            qrcodes.forEach(qrcode => {
+                if (qrcode.classList.contains(selectedCrypto + '-qrcode')) {
+                    qrcode.style.display = 'block';
+                } else {
+                    qrcode.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
